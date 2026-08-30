@@ -1,0 +1,7 @@
+# Swift Package Manager build products
+.build/
+.swiftpm/
+DerivedData/
+
+# Built app bundle — regenerate with ./build-app.sh
+ViofoConfig.app/
