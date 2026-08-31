@@ -53,6 +53,46 @@ enum FileActions {
         }
     }
 
+    // MARK: - Camera profiles
+    //
+    // The camera's own export is not a usable save format: it is written only
+    // when an export is requested on the device, and the camera never reads it
+    // back. A profile is the replacement -- taken from cmd=3014, kept as JSON,
+    // and writable straight back to the camera.
+
+    @discardableResult
+    static func saveProfile(_ profile: CameraProfile) -> Bool {
+        let panel = NSSavePanel()
+        let stamp = ISO8601DateFormatter()
+        stamp.formatOptions = [.withYear, .withMonth, .withDay, .withDashSeparatorInDate]
+        panel.nameFieldStringValue = "viofo-settings-\(stamp.string(from: profile.captured)).json"
+        panel.allowedContentTypes = [.json]
+        panel.message = "Save the camera's current settings so they can be examined or applied later."
+        guard panel.runModal() == .OK, let url = panel.url else { return false }
+        do {
+            try profile.json().write(to: url, atomically: true, encoding: .utf8)
+            remember(url)
+            return true
+        } catch {
+            present(error.localizedDescription)
+            return false
+        }
+    }
+
+    static func openProfile() -> CameraProfile? {
+        let panel = NSOpenPanel()
+        panel.allowedContentTypes = [.json]
+        panel.canChooseDirectories = false
+        panel.message = "Choose a saved settings profile."
+        guard panel.runModal() == .OK, let url = panel.url else { return nil }
+        do {
+            return try CameraProfile.load(Data(contentsOf: url))
+        } catch {
+            present("That is not a settings profile: \(error.localizedDescription)")
+            return nil
+        }
+    }
+
     /// Cards mount under /Volumes, so look there for an exported config: at the
     /// root, where the camera writes it, and one directory down, where it tends
     /// to end up once it has been filed away.

@@ -8,6 +8,7 @@ let package = Package(
         .executableTarget(
             name: "ViofoConfig",
             path: "Sources/ViofoConfig",
+            resources: [.process("Resources")],
             swiftSettings: [.swiftLanguageMode(.v5)]
         ),
         .testTarget(

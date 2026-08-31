@@ -11,6 +11,14 @@ struct ViofoConfigApp: App {
                 .environmentObject(document)
                 .frame(minWidth: 940, minHeight: 620)
         }
+        // The camera is a separate window: the file is whatever the last
+        // requested export wrote, the camera is live, and conflating the two
+        // would be misleading.
+        Window("Camera", id: "camera") {
+            CameraView()
+        }
+        .keyboardShortcut("k")
+
         .commands {
             CommandGroup(replacing: .newItem) { }
             CommandGroup(after: .newItem) {
@@ -29,7 +37,25 @@ struct ViofoConfigApp: App {
                 Button("Revert All Changes") { document.revertAll() }
                     .disabled(!document.isModified)
             }
+            CommandGroup(after: .toolbar) {
+                OpenCameraButton()
+            }
         }
+    }
+}
+
+/// Opens the camera window.
+///
+/// This needs `openWindow` from the environment, which means it has to be a
+/// view rather than a bare closure in the command group. It used to open a
+/// `viofoconfig://camera` URL, but that scheme was never registered, so the
+/// menu item only ever produced "There is no application set to open the URL".
+private struct OpenCameraButton: View {
+    @Environment(\.openWindow) private var openWindow
+    var body: some View {
+        // No shortcut here: the Window scene already puts ⌘K on its own
+        // "Camera" item, and a second one would collide.
+        Button("Camera Over Wi-Fi…") { openWindow(id: "camera") }
     }
 }
 

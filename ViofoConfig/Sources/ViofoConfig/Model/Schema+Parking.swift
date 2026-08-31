@@ -7,78 +7,6 @@ extension Schema {
         blurb: "What happens after the engine is off. Everything here depends on Parking Mode being enabled, and most of it on a hardwire kit or battery pack supplying power.",
         settings: [
             SettingSpec(
-                key: "Parking Mode",
-                section: "Parking Recording",
-                title: "Parking Mode",
-                kind: .options([
-                    SettingOption(raw: 0,  label: "Off"),
-                    SettingOption(raw: 1,  label: "Hybrid Parking mode"),
-                    SettingOption(raw: 2,  label: "Low Power Impact Detection"),
-                    SettingOption(raw: 3,  label: "Low Bitrate Recording"),
-                    SettingOption(raw: 4,  label: "Auto Event Detection"),
-                    SettingOption(raw: 5,  label: "Timelapse 1fps (Night Vision)"),
-                    SettingOption(raw: 6,  label: "Timelapse 1 fps"),
-                    SettingOption(raw: 7,  label: "Timelapse 2 fps"),
-                    SettingOption(raw: 8,  label: "Timelapse 3 fps"),
-                    SettingOption(raw: 9,  label: "Timelapse 5 fps"),
-                    SettingOption(raw: 10, label: "Timelapse 10 fps"),
-                ]),
-                summary: "How the camera records once the engine is off. The master switch for this whole section.",
-                manual: """
-                    Low Power Impact Detection keeps the camera in very low-power \
-                    standby; on an impact it wakes in about 2 seconds and records for 1 \
-                    minute, extended up to 3 minutes if movement or further impact \
-                    continues.
-
-                    Low Bitrate Recording records video and audio continuously at a low \
-                    bitrate, maximising how much fits on the storage device.
-
-                    Auto Event Detection starts recording when a moving object is \
-                    detected and saves 15 seconds before and 30 seconds after the event.
-
-                    Timelapse records without audio at 1/2/3/5/10 fps. The 1 fps mode \
-                    additionally offers Night Vision, which gives a brighter, clearer \
-                    picture in extreme low light at lower power consumption.
-
-                    Hybrid Parking Recording combines two of the above: it starts in \
-                    timelapse, low bitrate or event detection and switches to impact \
-                    detection when the cut-off time or voltage is reached.
-
-                    In hot weather the manual recommends timelapse; above 60°C inside the \
-                    car it advises turning the dashcam off entirely to avoid recording \
-                    errors or damage.
-                    """,
-                manualRef: "p.45–56",
-                requires: "VIOFO HK4 / HK6 ACC hardwire kit (recommended)"
-            ),
-            SettingSpec(
-                key: "Hybrid Parking mode",
-                section: "Parking Recording",
-                title: "Hybrid Parking mode",
-                kind: .options([
-                    SettingOption(raw: 0, label: "Low Bitrate → Impact"),
-                    SettingOption(raw: 1, label: "Event Detection → Impact"),
-                    SettingOption(raw: 2, label: "Timelapse 1fps (Night Vision) → Impact"),
-                    SettingOption(raw: 3, label: "Timelapse 1 fps → Impact"),
-                    SettingOption(raw: 4, label: "Timelapse 2 fps → Impact"),
-                    SettingOption(raw: 5, label: "Timelapse 3 fps → Impact"),
-                    SettingOption(raw: 6, label: "Timelapse 5 fps → Impact"),
-                    SettingOption(raw: 7, label: "Timelapse 10 fps → Impact"),
-                ]),
-                summary: "Which pair of modes hybrid parking runs, first stage then fallback.",
-                manual: """
-                    Only used when Parking Mode is set to Hybrid. The camera records in \
-                    the first mode until the cut-off time or cut-off voltage is reached, \
-                    then drops into Low Power Impact Detection and continues until the \
-                    hardwire kit's own low-voltage protection cuts power.
-
-                    Example from the manual: with the cut-off time set to 30 minutes and \
-                    Timelapse 1fps → Impact selected, the camera records timelapse for 30 \
-                    minutes, then switches to impact detection.
-                    """,
-                manualRef: "p.46, 53–54"
-            ),
-            SettingSpec(
                 key: "Vehicle Battery Protection",
                 section: "Parking Recording",
                 title: "Vehicle Battery Protection",
@@ -175,6 +103,78 @@ extension Schema {
                     Battery Protection = Cut-off BP100 Capacity.
                     """,
                 requires: "VIOFO BP100 battery pack"
+            ),
+            SettingSpec(
+                key: "Parking Mode",
+                section: "Parking Recording",
+                title: "Parking Mode",
+                kind: .options([
+                    SettingOption(raw: 0,  label: "Off"),
+                    SettingOption(raw: 1,  label: "Hybrid Parking mode"),
+                    SettingOption(raw: 2,  label: "Low Power Impact Detection"),
+                    SettingOption(raw: 3,  label: "Low Bitrate Recording"),
+                    SettingOption(raw: 4,  label: "Auto Event Detection"),
+                    SettingOption(raw: 5,  label: "Timelapse 1fps (Night Vision)"),
+                    SettingOption(raw: 6,  label: "Timelapse 1 fps"),
+                    SettingOption(raw: 7,  label: "Timelapse 2 fps"),
+                    SettingOption(raw: 8,  label: "Timelapse 3 fps"),
+                    SettingOption(raw: 9,  label: "Timelapse 5 fps"),
+                    SettingOption(raw: 10, label: "Timelapse 10 fps"),
+                ]),
+                summary: "How the camera records once the engine is off. The master switch for this whole section.",
+                manual: """
+                    Low Power Impact Detection keeps the camera in very low-power \
+                    standby; on an impact it wakes in about 2 seconds and records for 1 \
+                    minute, extended up to 3 minutes if movement or further impact \
+                    continues.
+
+                    Low Bitrate Recording records video and audio continuously at a low \
+                    bitrate, maximising how much fits on the storage device.
+
+                    Auto Event Detection starts recording when a moving object is \
+                    detected and saves 15 seconds before and 30 seconds after the event.
+
+                    Timelapse records without audio at 1/2/3/5/10 fps. The 1 fps mode \
+                    additionally offers Night Vision, which gives a brighter, clearer \
+                    picture in extreme low light at lower power consumption.
+
+                    Hybrid Parking Recording combines two of the above: it starts in \
+                    timelapse, low bitrate or event detection and switches to impact \
+                    detection when the cut-off time or voltage is reached.
+
+                    In hot weather the manual recommends timelapse; above 60°C inside the \
+                    car it advises turning the dashcam off entirely to avoid recording \
+                    errors or damage.
+                    """,
+                manualRef: "p.45–56",
+                requires: "VIOFO HK4 / HK6 ACC hardwire kit (recommended)"
+            ),
+            SettingSpec(
+                key: "Hybrid Parking mode",
+                section: "Parking Recording",
+                title: "Hybrid Parking mode",
+                kind: .options([
+                    SettingOption(raw: 0, label: "Low Bitrate → Impact"),
+                    SettingOption(raw: 1, label: "Event Detection → Impact"),
+                    SettingOption(raw: 2, label: "Timelapse 1fps (Night Vision) → Impact"),
+                    SettingOption(raw: 3, label: "Timelapse 1 fps → Impact"),
+                    SettingOption(raw: 4, label: "Timelapse 2 fps → Impact"),
+                    SettingOption(raw: 5, label: "Timelapse 3 fps → Impact"),
+                    SettingOption(raw: 6, label: "Timelapse 5 fps → Impact"),
+                    SettingOption(raw: 7, label: "Timelapse 10 fps → Impact"),
+                ]),
+                summary: "Which pair of modes hybrid parking runs, first stage then fallback.",
+                manual: """
+                    Only used when Parking Mode is set to Hybrid. The camera records in \
+                    the first mode until the cut-off time or cut-off voltage is reached, \
+                    then drops into Low Power Impact Detection and continues until the \
+                    hardwire kit's own low-voltage protection cuts power.
+
+                    Example from the manual: with the cut-off time set to 30 minutes and \
+                    Timelapse 1fps → Impact selected, the camera records timelapse for 30 \
+                    minutes, then switches to impact detection.
+                    """,
+                manualRef: "p.46, 53–54"
             ),
             SettingSpec(
                 key: "Enter Parking Mode Timer",

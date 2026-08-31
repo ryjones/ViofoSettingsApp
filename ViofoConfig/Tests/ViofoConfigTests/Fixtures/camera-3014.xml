@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Function>
+<Cmd>2003</Cmd>
+<Status>5</Status>
+<Cmd>2007</Cmd>
+<Status>1</Status>
+<Cmd>2011</Cmd>
+<Status>0</Status>
+<Cmd>8200</Cmd>
+<Status>2</Status>
+<Cmd>8214</Cmd>
+<Status>0</Status>
+<Cmd>9352</Cmd>
+<Status>1</Status>
+<Function>
+<Cmd>8220</Cmd>
+<Status>0</Status>
+<String>6,6,6</String>
+</Function>
+<Cmd>8222</Cmd>
+<Status>2,7</Status>
+</Function>

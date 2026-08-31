@@ -27,11 +27,67 @@ a rear camera while running a two-channel resolution that has no room for it, or
 switch on a stamp whose text is empty, or mute every channel it has for telling
 you the card has failed. Nothing is invalid, so nothing warns you.
 
-> **This app does not write to the camera.** The manual (p.65) describes
-> `viofo_config.ini` as a read-out you open to review the camera's current
-> settings; it documents no way to load an edited file back. Treat a saved file as
-> a record of what you intend to set, then make the change on the camera or in the
-> VIOFO app.
+> **This app does not write to the camera, and no edited file can be.** The
+> manual (p.65) describes `viofo_config.ini` as a read-out, and taking the camera
+> application apart confirms that is all it is: `cardv` writes the file and never
+> reads it. The routine that would apply a value back — `Menu_LoadString` — is
+> compiled into the binary and has no callers at all, and if the file is already
+> on the card the camera simply overwrites it with its own settings. Treat a
+> saved file as a record of what you intend to set, then make the change on the
+> camera or in the VIOFO app.
+>
+> The evidence, and a way to change that, are in the firmware project:
+> <https://github.com/ryjones/ViofoFirmwareThingy> (`cardv-re.md`).
+
+## Where the settings come from
+
+Every key, section, ordering, value code and text-length cap in this app is
+checked against the camera firmware itself, not transcribed from the manual.
+`Tests/ViofoConfigTests/Fixtures/firmware-schema.json` is extracted from the
+settings descriptor table in the camera's `cardv` binary — the same table the
+camera walks when it writes the file — and `FirmwareSchemaTests` fails if the
+two ever disagree. The manual supplies what each setting *means*; the firmware
+supplies what the file *is*.
+
+That check has already earned its keep: it caught this app listing
+`Parking Mode` and `Hybrid Parking mode` ahead of the battery-protection keys,
+where the camera writes them after.
+
+## Talking to the camera over Wi-Fi
+
+The camera also answers on its own Wi-Fi access point at `http://192.168.1.254`.
+`cmd=3014` returns every setting with its current value, and
+`?custom=1&cmd=<n>&par=<v>` writes one — both confirmed against a live A329S.
+The exported config can be downloaded with a plain `GET /viofo_config.ini`.
+
+Note that the file is written **only when you ask the camera to export its
+settings**, on the device — not at boot, and not when a setting changes. System
+Settings ▸ Export Settings gates the write but does not trigger it, and
+`cmd=9352` only flips that gate. So the file goes stale the moment anything is
+written over the API, and it may not exist at all. Anything live should read and
+write the API directly rather than route through the file.
+
+Settings can be taken off the camera as JSON, edited, and written back — no card,
+no ini:
+
+```sh
+ViofoConfig --camera --export profile.json   # 93 settings, 88 writable
+ViofoConfig --camera --plan  profile.json    # what applying it would change
+ViofoConfig --camera --apply profile.json    # write it, reading each one back
+```
+
+The app implements this: **Window ▸ Camera** connects, lists every setting the
+camera reports, and writes changes back, reading each one back to show what the
+camera actually accepted. Commands that format storage or reset the camera are
+refused before a request is built. There is also a read-only command line:
+
+```sh
+ViofoConfig --camera            # connect, print every setting and its value
+```
+
+The protocol, the A329S command table, the macOS entitlements it needs and the
+parts still unverified are in
+[docs/camera-http-api.md](docs/camera-http-api.md).
 
 ## Getting the file off your camera
 
@@ -48,10 +104,16 @@ Requires macOS 14 or later and a Swift 6 toolchain (Xcode 16+).
 
 ```sh
 git clone https://github.com/ryjones/ViofoSettingsApp.git
-cd ViofoSettingsApp/ViofoConfig
-./build-app.sh          # produces ViofoConfig.app
-open ViofoConfig.app
+cd ViofoSettingsApp
+make            # build and test
+make app        # produces ViofoConfig/ViofoConfig.app
+make dist       # and zips it
+open ViofoConfig/ViofoConfig.app
 ```
+
+`make schema` runs just the check against the firmware-derived fixture, so a
+failure there unambiguously means the app and the camera disagree. CI runs all
+of it on every push and uploads the packaged app.
 
 You can also open a file directly:
 

@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Swift version
+        run: swift --version
+
+      - name: Build
+        run: make build
+
+      - name: Test
+        run: make test
+
+      # Guards the schema against the firmware-derived fixture specifically, so
+      # a failure here is unmistakably "the app and the camera disagree".
+      - name: Check schema against firmware
+        run: make schema
+
+      - name: Package app
+        run: make dist
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ViofoConfig-app
+          path: ViofoConfig/ViofoConfig-*.zip
+          if-no-files-found: error

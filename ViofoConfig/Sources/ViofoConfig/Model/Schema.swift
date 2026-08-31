@@ -30,13 +30,18 @@ enum Schema {
 
     /// About the file itself, shown on the welcome screen.
     static let aboutFile = """
-        The camera writes viofo_config.ini to the root of the microSD card when \
-        you remove the card, provided System Settings ▸ Export Settings is On. \
-        The manual (p.65) presents it as a read-out you open with VIOFO's \
-        configuration tool to review the camera's current settings — it does not \
-        document loading an edited file back into the camera. Treat saved changes \
-        as a record of what you intend to set on the camera, and verify on the \
-        device itself.
+        The camera writes viofo_config.ini to the microSD card when you ask it \
+        to export the settings, and only then — not at boot, and not when a \
+        setting changes. System Settings ▸ Export Settings must be On: it is a \
+        gate on the export, not the export itself. The manual (p.65) presents \
+        the file as a read-out for reviewing current settings, and that is \
+        exactly what it is: the firmware writes this file and never reads it \
+        back. Taking the camera application apart confirms it \
+        — the routine that would apply a value from the file is present in the \
+        binary and nothing calls it, and if the file is already on the card the \
+        camera overwrites it with its own settings. So an edited file cannot be \
+        loaded on stock firmware. Treat saved changes as a record of what you \
+        intend to set on the camera, and make the change on the device itself.
         """
 
     // Reusable option lists.

@@ -5,10 +5,38 @@ import Foundation
 ///
 ///     ViofoConfig --report /Volumes/CARD/viofo_config.ini   # full Markdown explanation
 ///     ViofoConfig --check  /Volumes/CARD/viofo_config.ini   # advisories only
+///     ViofoConfig --camera [http://host]                    # read the camera live
+///     ViofoConfig --camera --export profile.json            # settings as JSON
+///     ViofoConfig --camera --plan   profile.json            # what applying it would change
+///     ViofoConfig --camera --apply  profile.json            # write it back
 @main
 enum EntryPoint {
     static func main() {
         let args = CommandLine.arguments
+        if args.contains("--camera") {
+            let host = args.first(where: { $0.hasPrefix("http://") })
+            let allowCaution = args.contains("--allow-caution")
+            // The value after the flag, unless it is another flag or the host.
+            func operand(after flag: String) -> String? {
+                guard let i = args.firstIndex(of: flag), i + 1 < args.count else { return nil }
+                let next = args[i + 1]
+                return next.hasPrefix("-") || next.hasPrefix("http://") ? nil : next
+            }
+            let mode: CameraCLI.Mode
+            if args.contains("--export") {
+                mode = .export(operand(after: "--export"))
+            } else if args.contains("--plan") {
+                guard let p = operand(after: "--plan") else { return usage("--plan") }
+                mode = .plan(p)
+            } else if args.contains("--apply") {
+                guard let p = operand(after: "--apply") else { return usage("--apply") }
+                mode = .apply(p)
+            } else {
+                mode = .list
+            }
+            CameraCLI.run(host: host, mode: mode, allowCaution: allowCaution)
+            return
+        }
         if let flagIndex = args.firstIndex(where: { $0 == "--report" || $0 == "--check" }) {
             let flag = args[flagIndex]
             guard flagIndex + 1 < args.count else {
@@ -25,6 +53,12 @@ enum EntryPoint {
             Launch.initialURL = URL(fileURLWithPath: path)
         }
         ViofoConfigApp.main()
+    }
+
+    private static func usage(_ flag: String) {
+        FileHandle.standardError.write(Data(
+            "usage: ViofoConfig --camera \(flag) <profile.json>\n".utf8))
+        exit(2)
     }
 
     @MainActor

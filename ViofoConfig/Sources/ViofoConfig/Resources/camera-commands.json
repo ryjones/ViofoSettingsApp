@@ -1,0 +1,2261 @@
+{
+ "model": "A329S",
+ "firmware_observed": "VIOFO_A329S_V2.2_260815",
+ "host": "http://192.168.1.254",
+ "source": "cardv's HTTP dispatch table at .data:0x11103d8, via tools/re/dump_api_table.py in the firmware project; option labels carried over from DASHCAM_MENU_INFO x CMD_MANAGER for DEVICE_MODEL='A329S' in VIOFO's iOS app. See docs/camera-http-api.md.",
+ "destructive": [
+  3010,
+  3011,
+  9316,
+  9317
+ ],
+ "caution": [
+  9352,
+  9353
+ ],
+ "commands": [
+  {
+   "cmd": 2001,
+   "key": "WiFiCmd_OnExeMovieRec",
+   "title": "Movie Rec",
+   "setting_id": 24,
+   "handler": "WiFiCmd_OnExeMovieRec"
+  },
+  {
+   "cmd": 2002,
+   "key": "WiFiCmd_OnExeSetMovieRecSize",
+   "title": "Movie Rec Size",
+   "setting_id": 25,
+   "handler": "WiFiCmd_OnExeSetMovieRecSize"
+  },
+  {
+   "cmd": 2003,
+   "key": "CMD_SET_LOOP_REC",
+   "title": "Loop Recording",
+   "setting_id": 34,
+   "ini_keys": [
+    "Loop Recording"
+   ],
+   "section": "Video Settings",
+   "handler": "WiFiCmd_OnExeCyclicRec",
+   "options": [
+    {
+     "value": 1,
+     "label": "1min"
+    },
+    {
+     "value": 2,
+     "label": "2min"
+    },
+    {
+     "value": 3,
+     "label": "3min"
+    },
+    {
+     "value": 4,
+     "label": "5min"
+    },
+    {
+     "value": 5,
+     "label": "10min"
+    }
+   ]
+  },
+  {
+   "cmd": 2004,
+   "key": "CMD_SET_HDR",
+   "title": "Set Hdr",
+   "setting_id": 28,
+   "handler": "WiFiCmd_OnExeMovieWDR"
+  },
+  {
+   "cmd": 2005,
+   "key": "SETTING_05",
+   "title": "Setting 0x05",
+   "setting_id": 5
+  },
+  {
+   "cmd": 2006,
+   "key": "WiFiCmd_OnExeSetMotionDet",
+   "title": "Motion Det",
+   "setting_id": 35,
+   "handler": "WiFiCmd_OnExeSetMotionDet"
+  },
+  {
+   "cmd": 2007,
+   "key": "CMD_MOVIE_AUDIO_SWITCH",
+   "title": "Record Audio",
+   "setting_id": 36,
+   "ini_keys": [
+    "Record Audio"
+   ],
+   "section": "Video Settings",
+   "handler": "WiFiCmd_OnExeSetMovieAudio",
+   "options": [
+    {
+     "value": 0,
+     "label": "OFF"
+    },
+    {
+     "value": 1,
+     "label": "ON"
+    },
+    {
+     "value": 2,
+     "label": "Only Parking"
+    }
+   ]
+  },
+  {
+   "cmd": 2008,
+   "key": "CMD_WATERMARK_SWITCH_DATE",
+   "title": "Date Stamp",
+   "setting_id": 178,
+   "ini_keys": [
+    "Date Stamp"
+   ],
+   "section": "Stamp",
+   "handler": "WiFiCmd_OnExeSetMovieDateImprint",
+   "options": [
+    {
+     "value": 0,
+     "label": "OFF"
+    },
+    {
+     "value": 1,
+     "label": "ON"
+    }
+   ]
+  },
+  {
+   "cmd": 2011,
+   "key": "CMD_SET_G_SENSOR",
+   "title": "G-sensor",
+   "setting_id": 149,
+   "ini_keys": [
+    "G-sensor"
+   ],
+   "section": "Video Settings",
+   "handler": "WiFiCmd_OnExeSetMovieGSesnorSensitivity",
+   "options": [
+    {
+     "value": 0,
+     "label": "OFF"
+    },
+    {
+     "value": 1,
+     "label": "Low"
+    },
+    {
+     "value": 2,
+     "label": "Medium"
+    },
+    {
+     "value": 3,
+     "label": "High"
+    }
+   ]
+  },
+  {
+   "cmd": 2012,
+   "key": "WiFiCmd_OnExeSetAutoRecording",
+   "title": "Auto Recording",
+   "setting_id": 134,
+   "handler": "WiFiCmd_OnExeSetAutoRecording"
+  },
+  {
+   "cmd": 2016,
+   "key": "XML_GetMovieRecStatus",
+   "title": "Movie Rec Status",
+   "setting_id": 24,
+   "handler": "XML_GetMovieRecStatus"
+  },
+  {
+   "cmd": 2020,
+   "key": "SETTING_2E",
+   "title": "Setting 0x2e",
+   "setting_id": 46
+  },
+  {
+   "cmd": 2021,
+   "key": "SETTING_2F",
+   "title": "Setting 0x2f",
+   "setting_id": 47
+  },
+  {
+   "cmd": 2022,
+   "key": "SETTING_30",
+   "title": "Setting 0x30",
+   "setting_id": 48
+  },
+  {
+   "cmd": 2023,
+   "key": "SETTING_28",
+   "title": "Setting 0x28",
+   "setting_id": 40
+  },
+  {
+   "cmd": 2024,
+   "key": "SETTING_31",
+   "title": "Setting 0x31",
+   "setting_id": 49
+  },
+  {
+   "cmd": 3007,
+   "key": "SETTING_37",
+   "title": "Setting 0x37",
+   "setting_id": 55
+  },
+  {
+   "cmd": 3008,
+   "key": "CMD_SET_LANGUAGE",
+   "title": "Set Language",
+   "setting_id": 57,
+   "options": [
+    {
+     "value": 0,
+     "label": "LANG_SC"
+    },
+    {
+     "value": 1,
+     "label": "LANG_TC"
+    },
+    {
+     "value": 2,
+     "label": "LANG_EN"
+    },
+    {
+     "value": 3,
+     "label": "LANG_FR"
+    },
+    {
+     "value": 4,
+     "label": "LANG_ES"
+    },
+    {
+     "value": 5,
+     "label": "LANG_PO"
+    },
+    {
+     "value": 6,
+     "label": "LANG_DE"
+    },
+    {
+     "value": 7,
+     "label": "LANG_IT"
+    },
+    {
+     "value": 8,
+     "label": "LANG_RU"
+    },
+    {
+     "value": 9,
+     "label": "LANG_JP"
+    },
+    {
+     "value": 10,
+     "label": "LANG_TU"
+    },
+    {
+     "value": 11,
+     "label": "LANG_RO"
+    },
+    {
+     "value": 12,
+     "label": "LANG_PL"
+    },
+    {
+     "value": 13,
+     "label": "LANG_CK"
+    },
+    {
+     "value": 14,
+     "label": "LANG_SL"
+    },
+    {
+     "value": 15,
+     "label": "LANG_AR"
+    },
+    {
+     "value": 16,
+     "label": "LANG_KO"
+    },
+    {
+     "value": 17,
+     "label": "LANG_IR"
+    },
+    {
+     "value": 18,
+     "label": "LANG_TH"
+    }
+   ]
+  },
+  {
+   "cmd": 3009,
+   "key": "WiFiCmd_OnExeTV",
+   "title": "TV",
+   "setting_id": 59,
+   "handler": "WiFiCmd_OnExeTV"
+  },
+  {
+   "cmd": 3028,
+   "key": "SETTING_11",
+   "title": "Live Video Source",
+   "setting_id": 17,
+   "ini_keys": [
+    "Live Video Source"
+   ],
+   "section": "Video Settings"
+  },
+  {
+   "cmd": 3033,
+   "key": "SETTING_80",
+   "title": "Setting 0x80",
+   "setting_id": 128
+  },
+  {
+   "cmd": 8053,
+   "key": "CMD_SOUND_VOLUME",
+   "title": "Voice Notification Volume",
+   "setting_id": 113,
+   "ini_keys": [
+    "Voice Notification Volume"
+   ],
+   "section": "System Settings",
+   "handler": "WiFiCmd_OnExeSetBeepVolume",
+   "options": [
+    {
+     "value": 0,
+     "label": "Low"
+    },
+    {
+     "value": 1,
+     "label": "Medium"
+    },
+    {
+     "value": 2,
+     "label": "High"
+    }
+   ]
+  },
+  {
+   "cmd": 8200,
+   "key": "CMD_SET_BITRATE",
+   "title": "Set Bitrate",
+   "setting_id": 162,
+   "handler": "WiFiCmd_OnExeSetVideoBitrate",
+   "options": [
+    {
+     "value": 0,
+     "label": "Low"
+    },
+    {
+     "value": 1,
+     "label": "Normal"
+    },
+    {
+     "value": 2,
+     "label": "High"
+    },
+    {
+     "value": 3,
+     "label": "Maximum"
+    }
+   ]
+  },
+  {
+   "cmd": 8201,
+   "key": "CMD_WIFI_FREQUENCY",
+   "title": "Wi-Fi Frequency",
+   "setting_id": 169,
+   "ini_keys": [
+    "Wi-Fi Frequency"
+   ],
+   "section": "System Settings",
+   "options": [
+    {
+     "value": 1,
+     "label": "2.4 GHz"
+    },
+    {
+     "value": 2,
+     "label": "5 GHz"
+    }
+   ]
+  },
+  {
+   "cmd": 8202,
+   "key": "CMD_CHANGE_VIDEO_SOURCE",
+   "title": "Live Video Source",
+   "setting_id": 17,
+   "ini_keys": [
+    "Live Video Source"
+   ],
+   "section": "Video Settings",
+   "options": [
+    {
+     "value": 0,
+     "label": "Front Camera"
+    },
+    {
+     "value": 1,
+     "label": "Interior Camera"
+    },
+    {
+     "value": 2,
+     "label": "Rear Camera"
+    },
+    {
+     "value": 3,
+     "label": "Interior small camera"
+    },
+    {
+     "value": 4,
+     "label": "Front small camera"
+    },
+    {
+     "value": 5,
+     "label": "All Camera"
+    }
+   ]
+  },
+  {
+   "cmd": 8203,
+   "key": "CMD_IR_LED",
+   "title": "IR LED",
+   "setting_id": 39,
+   "ini_keys": [
+    "IR LED"
+   ],
+   "section": "Video Settings",
+   "options": [
+    {
+     "value": 0,
+     "label": "OFF"
+    },
+    {
+     "value": 1,
+     "label": "ON"
+    },
+    {
+     "value": 2,
+     "label": "AUTO"
+    }
+   ]
+  },
+  {
+   "cmd": 8204,
+   "key": "CMD_PARKING_G_SENSOR",
+   "title": "Parking G-sensor",
+   "setting_id": 150,
+   "ini_keys": [
+    "Parking G-sensor"
+   ],
+   "section": "Parking Recording",
+   "handler": "WiFiCmd_OnExeParkGsensorSens",
+   "options": [
+    {
+     "value": 1,
+     "label": "Low"
+    },
+    {
+     "value": 2,
+     "label": "Medium"
+    },
+    {
+     "value": 3,
+     "label": "High"
+    }
+   ]
+  },
+  {
+   "cmd": 8205,
+   "key": "CMD_PARKING_MODE",
+   "title": "Parking Mode",
+   "setting_id": 151,
+   "ini_keys": [
+    "Parking Mode"
+   ],
+   "section": "Parking Recording",
+   "handler": "WiFiCmd_OnExeParkingMode",
+   "options": [
+    {
+     "value": 0,
+     "label": "OFF"
+    },
+    {
+     "value": 1,
+     "label": "Hybrid Parking mode"
+    },
+    {
+     "value": 2,
+     "label": "low power impact detection"
+    },
+    {
+     "value": 3,
+     "label": "Time lapse 1fps (SNV)"
+    },
+    {
+     "value": 4,
+     "label": "Time lapse 1 fps"
+    },
+    {
+     "value": 5,
+     "label": "Time lapse 2 fps"
+    },
+    {
+     "value": 6,
+     "label": "Time lapse 3 fps"
+    },
+    {
+     "value": 7,
+     "label": "Time lapse 5 fps"
+    },
+    {
+     "value": 8,
+     "label": "Time lapse 10 fps"
+    },
+    {
+     "value": 9,
+     "label": "Low Bitrate Recording"
+    },
+    {
+     "value": 10,
+     "label": "Auto Event Detection"
+    }
+   ]
+  },
+  {
+   "cmd": 8206,
+   "key": "CMD_TIME_LAPSE_RECORDING",
+   "title": "Time-lapse Recording",
+   "setting_id": 38,
+   "ini_keys": [
+    "Time-lapse Recording"
+   ],
+   "section": "Video Settings",
+   "options": [
+    {
+     "value": 0,
+     "label": "OFF"
+    },
+    {
+     "value": 1,
+     "label": "Time lapse 1 fps"
+    },
+    {
+     "value": 2,
+     "label": "Time lapse 2 fps"
+    },
+    {
+     "value": 3,
+     "label": "Time lapse 3 fps"
+    },
+    {
+     "value": 4,
+     "label": "Time lapse 5 fps"
+    },
+    {
+     "value": 5,
+     "label": "Time lapse 10 fps"
+    }
+   ]
+  },
+  {
+   "cmd": 8207,
+   "key": "CMD_PARKING_MOTION_DETECTION",
+   "title": "Parking Motion Detection",
+   "setting_id": 152,
+   "ini_keys": [
+    "Parking Motion Detection"
+   ],
+   "section": "Parking Recording",
+   "options": [
+    {
+     "value": 0,
+     "label": "Low"
+    },
+    {
+     "value": 1,
+     "label": "Medium"
+    },
+    {
+     "value": 2,
+     "label": "High"
+    }
+   ]
+  },
+  {
+   "cmd": 8208,
+   "key": "CMD_GPS_SWITCH",
+   "title": "GPS",
+   "setting_id": 146,
+   "ini_keys": [
+    "GPS"
+   ],
+   "section": "System Settings",
+   "options": [
+    {
+     "value": 0,
+     "label": "OFF"
+    },
+    {
+     "value": 1,
+     "label": "ON"
+    }
+   ]
+  },
+  {
+   "cmd": 8209,
+   "key": "CMD_SPEED_UNIT",
+   "title": "Speed Units",
+   "setting_id": 147,
+   "ini_keys": [
+    "Speed Units"
+   ],
+   "section": "System Settings",
+   "options": [
+    {
+     "value": 0,
+     "label": "MPH"
+    },
+    {
+     "value": 1,
+     "label": "km/h"
+    }
+   ]
+  },
+  {
+   "cmd": 8210,
+   "key": "CMD_WATERMARK_SWITCH_GPS",
+   "title": "Watermark Switch Gps",
+   "setting_id": 148,
+   "options": [
+    {
+     "value": 0,
+     "label": "OFF"
+    },
+    {
+     "value": 1,
+     "label": "Speed + Coordinates"
+    },
+    {
+     "value": 2,
+     "label": "Speed"
+    },
+    {
+     "value": 3,
+     "label": "Coordinates"
+    }
+   ]
+  },
+  {
+   "cmd": 8211,
+   "key": "CMD_SET_DATE_FORMAT",
+   "title": "Set Date Format",
+   "setting_id": 63,
+   "handler": "WiFiCmd_OnExeSetDateFormat",
+   "options": [
+    {
+     "value": 0,
+     "label": "YY-MM-DD"
+    },
+    {
+     "value": 1,
+     "label": "MM-DD-YY"
+    },
+    {
+     "value": 2,
+     "label": "DD-MM-YY"
+    }
+   ]
+  },
+  {
+   "cmd": 8212,
+   "key": "CMD_TIME_ZONE",
+   "title": "Time Zone",
+   "setting_id": 145,
+   "ini_keys": [
+    "Time Zone"
+   ],
+   "section": "System Settings",
+   "handler": "WiFiCmd_OnExeSetZone",
+   "options": [
+    {
+     "value": 0,
+     "label": "GMT+0"
+    },
+    {
+     "value": 1,
+     "label": "GMT+1"
+    },
+    {
+     "value": 2,
+     "label": "GMT+2"
+    },
+    {
+     "value": 3,
+     "label": "GMT+3"
+    },
+    {
+     "value": 4,
+     "label": "GMT+3 :30"
+    },
+    {
+     "value": 5,
+     "label": "GMT+4"
+    },
+    {
+     "value": 6,
+     "label": "GMT+4 :30"
+    },
+    {
+     "value": 7,
+     "label": "GMT+5"
+    },
+    {
+     "value": 8,
+     "label": "GMT+5 :30"
+    },
+    {
+     "value": 9,
+     "label": "GMT+6"
+    },
+    {
+     "value": 10,
+     "label": "GMT+6 :30"
+    },
+    {
+     "value": 11,
+     "label": "GMT+7"
+    },
+    {
+     "value": 12,
+     "label": "GMT+8"
+    },
+    {
+     "value": 13,
+     "label": "GMT+9"
+    },
+    {
+     "value": 14,
+     "label": "GMT+9 :30"
+    },
+    {
+     "value": 15,
+     "label": "GMT+10"
+    },
+    {
+     "value": 16,
+     "label": "GMT+10 :30"
+    },
+    {
+     "value": 17,
+     "label": "GMT+11"
+    },
+    {
+     "value": 18,
+     "label": "GMT+12"
+    },
+    {
+     "value": 19,
+     "label": "GMT+13"
+    },
+    {
+     "value": 20,
+     "label": "GMT-1"
+    },
+    {
+     "value": 21,
+     "label": "GMT-2"
+    },
+    {
+     "value": 22,
+     "label": "GMT-2 :30"
+    },
+    {
+     "value": 23,
+     "label": "GMT-3"
+    },
+    {
+     "value": 24,
+     "label": "GMT-3 :30"
+    },
+    {
+     "value": 25,
+     "label": "GMT-4"
+    },
+    {
+     "value": 26,
+     "label": "GMT-5"
+    },
+    {
+     "value": 27,
+     "label": "GMT-6"
+    },
+    {
+     "value": 28,
+     "label": "GMT-7"
+    },
+    {
+     "value": 29,
+     "label": "GMT-8"
+    },
+    {
+     "value": 30,
+     "label": "GMT-9"
+    },
+    {
+     "value": 31,
+     "label": "GMT-10"
+    },
+    {
+     "value": 32,
+     "label": "GMT-11"
+    },
+    {
+     "value": 33,
+     "label": "GMT-12"
+    }
+   ]
+  },
+  {
+   "cmd": 8213,
+   "key": "CMD_WATERMARK_SWITCH_MODEL",
+   "title": "Brand Model Stamp",
+   "setting_id": 167,
+   "ini_keys": [
+    "Brand Model Stamp"
+   ],
+   "section": "Stamp",
+   "handler": "WiFiCmd_OnExeCameraModelStamp",
+   "options": [
+    {
+     "value": 0,
+     "label": "OFF"
+    },
+    {
+     "value": 1,
+     "label": "ON"
+    }
+   ]
+  },
+  {
+   "cmd": 8214,
+   "key": "CMD_BEEP_SOUND",
+   "title": "Beep Sound",
+   "setting_id": 56,
+   "ini_keys": [
+    "Beep Sound"
+   ],
+   "section": "System Settings",
+   "handler": "WiFiCmd_OnExeBeep",
+   "options": [
+    {
+     "value": 0,
+     "label": "OFF"
+    },
+    {
+     "value": 1,
+     "label": "Button Beep Only"
+    },
+    {
+     "value": 2,
+     "label": "Startup Sound Only"
+    },
+    {
+     "value": 3,
+     "label": "All On"
+    }
+   ]
+  },
+  {
+   "cmd": 8215,
+   "key": "CMD_FREQUENCY",
+   "title": "Frequency",
+   "setting_id": 58,
+   "ini_keys": [
+    "Frequency"
+   ],
+   "section": "System Settings",
+   "handler": "WiFiCmd_OnExeFrequency",
+   "options": [
+    {
+     "value": 0,
+     "label": "50 Hz"
+    },
+    {
+     "value": 1,
+     "label": "60 Hz"
+    }
+   ]
+  },
+  {
+   "cmd": 8216,
+   "key": "WiFiCmd_OnExeSensorRotate",
+   "title": "Sensor Rotate",
+   "setting_id": 40,
+   "handler": "WiFiCmd_OnExeSensorRotate"
+  },
+  {
+   "cmd": 8217,
+   "key": "WiFiCmd_OnExeFlipMirror",
+   "title": "Flip Mirror",
+   "setting_id": 173,
+   "handler": "WiFiCmd_OnExeFlipMirror"
+  },
+  {
+   "cmd": 8220,
+   "key": "CMD_SET_EXPOSURE_FRONT",
+   "title": "Set Exposure Front",
+   "setting_id": 5,
+   "aliases": [
+    "CMD_SET_EXPOSURE_INTERIOR",
+    "CMD_SET_EXPOSURE_REAR"
+   ],
+   "handler": "WifiCmdExe_CheckArgsType",
+   "options": [
+    {
+     "value": 0,
+     "label": "+2.0"
+    },
+    {
+     "value": 1,
+     "label": "+1.6"
+    },
+    {
+     "value": 2,
+     "label": "+1.3"
+    },
+    {
+     "value": 3,
+     "label": "+1.0"
+    },
+    {
+     "value": 4,
+     "label": "+0.6"
+    },
+    {
+     "value": 5,
+     "label": "+0.3"
+    },
+    {
+     "value": 6,
+     "label": "+0.0"
+    },
+    {
+     "value": 7,
+     "label": "-0.3"
+    },
+    {
+     "value": 8,
+     "label": "-0.6"
+    },
+    {
+     "value": 9,
+     "label": "-1.0"
+    },
+    {
+     "value": 10,
+     "label": "-1.3"
+    },
+    {
+     "value": 11,
+     "label": "-1.6"
+    },
+    {
+     "value": 12,
+     "label": "-2.0"
+    }
+   ]
+  },
+  {
+   "cmd": 8222,
+   "key": "CMD_RECORD_RESOLUTION",
+   "title": "Resolution",
+   "setting_id": 26,
+   "ini_keys": [
+    "Resolution"
+   ],
+   "section": "Video Settings",
+   "handler": "WifiCmdExe_CheckArgsType",
+   "options": [
+    {
+     "value": 0,
+     "label": "4K 60fps"
+    },
+    {
+     "value": 1,
+     "label": "4K 30fps"
+    },
+    {
+     "value": 2,
+     "label": "2K 60fps"
+    },
+    {
+     "value": 3,
+     "label": "2K 30fps"
+    },
+    {
+     "value": 4,
+     "label": "4K 21:9 60fps"
+    },
+    {
+     "value": 5,
+     "label": "4K 21:9 30fps"
+    },
+    {
+     "value": 6,
+     "label": "4K P60 + 2K P30"
+    },
+    {
+     "value": 7,
+     "label": "4K P30 + 2K P30"
+    },
+    {
+     "value": 8,
+     "label": "2K P60 + 2K P30"
+    },
+    {
+     "value": 9,
+     "label": "2K P30 + 2K P30"
+    },
+    {
+     "value": 10,
+     "label": "4K P60 21:9 + 2K 21:9"
+    },
+    {
+     "value": 11,
+     "label": "4K P30 21:9 + 2K 21:9"
+    },
+    {
+     "value": 12,
+     "label": "1080 P30 + 1080 P30"
+    },
+    {
+     "value": 13,
+     "label": "1080 P30 + 1080 P30"
+    }
+   ]
+  },
+  {
+   "cmd": 8223,
+   "key": "CMD_BOOT_DELAY",
+   "title": "Boot Delay",
+   "setting_id": 168,
+   "ini_keys": [
+    "Boot Delay"
+   ],
+   "section": "System Settings",
+   "handler": "WiFiCmd_OnExeSetBootDelay",
+   "options": [
+    {
+     "value": 0,
+     "label": "OFF"
+    },
+    {
+     "value": 1,
+     "label": "5sec"
+    },
+    {
+     "value": 2,
+     "label": "10sec"
+    }
+   ]
+  },
+  {
+   "cmd": 8224,
+   "key": "WiFiCmd_OnExeSetSensor1Rotate",
+   "title": "Sensor1 Rotate",
+   "setting_id": 170,
+   "handler": "WiFiCmd_OnExeSetSensor1Rotate"
+  },
+  {
+   "cmd": 8226,
+   "key": "CMD_IMAGE_REAR_ROTATION",
+   "title": "Rear Image Rotate",
+   "setting_id": 171,
+   "ini_keys": [
+    "Rear Image Rotate"
+   ],
+   "section": "Image Rotate & Mirror",
+   "handler": "WiFiCmd_OnExeSetSensor2Rotate",
+   "options": [
+    {
+     "value": 0,
+     "label": "OFF"
+    },
+    {
+     "value": 1,
+     "label": "ON"
+    }
+   ]
+  },
+  {
+   "cmd": 8225,
+   "key": "CMD_IMAGE_INTERIOR_ROTATION",
+   "title": "Interior Image Rotate",
+   "setting_id": 172,
+   "ini_keys": [
+    "Interior Image Rotate"
+   ],
+   "section": "Image Rotate & Mirror",
+   "handler": "WiFiCmd_OnExeSetSensor3Rotate",
+   "options": [
+    {
+     "value": 0,
+     "label": "OFF"
+    },
+    {
+     "value": 1,
+     "label": "ON"
+    }
+   ]
+  },
+  {
+   "cmd": 8232,
+   "key": "CMD_CAR_BATTERY_PROTECT_TIME_CLOSE",
+   "title": "Cut-off time",
+   "setting_id": 154,
+   "ini_keys": [
+    "Cut-off time"
+   ],
+   "section": "Parking Recording",
+   "handler": "WiFiCmd_OnExeParkModeTimer",
+   "options": [
+    {
+     "value": 0,
+     "label": "Continuous recording"
+    },
+    {
+     "value": 1,
+     "label": "30min"
+    },
+    {
+     "value": 2,
+     "label": "1h"
+    },
+    {
+     "value": 3,
+     "label": "2h"
+    },
+    {
+     "value": 4,
+     "label": "3h"
+    },
+    {
+     "value": 5,
+     "label": "4h"
+    },
+    {
+     "value": 6,
+     "label": "6h"
+    },
+    {
+     "value": 7,
+     "label": "8h"
+    },
+    {
+     "value": 8,
+     "label": "12h"
+    },
+    {
+     "value": 9,
+     "label": "24h"
+    },
+    {
+     "value": 10,
+     "label": "48h"
+    }
+   ]
+  },
+  {
+   "cmd": 8233,
+   "key": "CMD_PARKING_DELAY",
+   "title": "Enter Parking Mode Timer",
+   "setting_id": 153,
+   "ini_keys": [
+    "Enter Parking Mode Timer"
+   ],
+   "section": "Parking Recording",
+   "options": [
+    {
+     "value": 0,
+     "label": "OFF"
+    },
+    {
+     "value": 1,
+     "label": "90sec"
+    }
+   ]
+  },
+  {
+   "cmd": 9220,
+   "key": "CMD_IMAGE_REAR_MIRROR",
+   "title": "Rear Image Mirror",
+   "setting_id": 174,
+   "ini_keys": [
+    "Rear Image Mirror"
+   ],
+   "section": "Image Rotate & Mirror",
+   "handler": "WiFiCmd_OnExeSetSensor2Mirror",
+   "options": [
+    {
+     "value": 0,
+     "label": "OFF"
+    },
+    {
+     "value": 1,
+     "label": "ON"
+    }
+   ]
+  },
+  {
+   "cmd": 9219,
+   "key": "CMD_IMAGE_INTERIOR_MIRROR",
+   "title": "Interior Image Mirror",
+   "setting_id": 175,
+   "ini_keys": [
+    "Interior Image Mirror"
+   ],
+   "section": "Image Rotate & Mirror",
+   "handler": "WiFiCmd_OnExeSetSensor3Mirror",
+   "options": [
+    {
+     "value": 0,
+     "label": "OFF"
+    },
+    {
+     "value": 1,
+     "label": "ON"
+    }
+   ]
+  },
+  {
+   "cmd": 9221,
+   "key": "CMD_VOICE_SWITCH",
+   "title": "Voice Notification",
+   "setting_id": 157,
+   "ini_keys": [
+    "Voice Notification"
+   ],
+   "section": "System Settings",
+   "handler": "WiFiCmd_OnExeSetVoiceReport",
+   "options": [
+    {
+     "value": 0,
+     "label": "OFF"
+    },
+    {
+     "value": 1,
+     "label": "ON"
+    },
+    {
+     "value": 2,
+     "label": "Only Critical Alerts"
+    }
+   ]
+  },
+  {
+   "cmd": 8250,
+   "key": "CMD_SCREEN_SAVER",
+   "title": "Screen Saver",
+   "setting_id": 109,
+   "ini_keys": [
+    "Screen Saver"
+   ],
+   "section": "System Settings",
+   "handler": "WiFiCmd_OnExeSetAutoLcdOff",
+   "options": [
+    {
+     "value": 2,
+     "label": "3sec"
+    },
+    {
+     "value": 3,
+     "label": "15sec"
+    },
+    {
+     "value": 4,
+     "label": "30sec"
+    },
+    {
+     "value": 5,
+     "label": "1MIN"
+    },
+    {
+     "value": 6,
+     "label": "3MIN"
+    }
+   ]
+  },
+  {
+   "cmd": 9224,
+   "key": "CMD_NORMAL_LED_FRONT",
+   "title": "Front LED",
+   "setting_id": 177,
+   "aliases": [
+    "CMD_NORMAL_RECORDING_LED_CONTROL"
+   ],
+   "ini_keys": [
+    "Front LED"
+   ],
+   "section": "LED",
+   "handler": "WiFiCmd_OnExeSetLED",
+   "options": [
+    {
+     "value": 0,
+     "label": "All Off"
+    },
+    {
+     "value": 1,
+     "label": "All On"
+    },
+    {
+     "value": 2,
+     "label": "POWER ONLY"
+    }
+   ]
+  },
+  {
+   "cmd": 9226,
+   "key": "CMD_PARKING_LED_FRONT",
+   "title": "Front Parking LED",
+   "setting_id": 179,
+   "aliases": [
+    "CMD_PARKING_RECORDING_LED_CONTROL"
+   ],
+   "ini_keys": [
+    "Front Parking LED"
+   ],
+   "section": "Parking Mode LED",
+   "handler": "WiFiCmd_OnExeSetParkingMonitorLED",
+   "options": [
+    {
+     "value": 0,
+     "label": "All Off"
+    },
+    {
+     "value": 1,
+     "label": "All On"
+    },
+    {
+     "value": 2,
+     "label": "POWER ONLY"
+    }
+   ]
+  },
+  {
+   "cmd": 9229,
+   "key": "CMD_WATERMARK_SWITCH_BRAND",
+   "title": "Logo Stamp",
+   "setting_id": 185,
+   "ini_keys": [
+    "Logo Stamp"
+   ],
+   "section": "Stamp",
+   "handler": "WiFiCmd_OnExeSetWaterLogo",
+   "options": [
+    {
+     "value": 0,
+     "label": "OFF"
+    },
+    {
+     "value": 1,
+     "label": "ON"
+    }
+   ]
+  },
+  {
+   "cmd": 9230,
+   "key": "CMD_WATERMARK_CUSTOM_SWITCH",
+   "title": "Custom Stamp",
+   "setting_id": 183,
+   "ini_keys": [
+    "Custom Stamp"
+   ],
+   "section": "Stamp",
+   "handler": "WiFiCmd_OnExeSetCustomStamp",
+   "options": [
+    {
+     "value": 0,
+     "label": "OFF"
+    },
+    {
+     "value": 1,
+     "label": "ON"
+    }
+   ]
+  },
+  {
+   "cmd": 9231,
+   "key": "CMD_WATERMARK_PLATE_NUMBER_SWITCH",
+   "title": "License Plate Stamp",
+   "setting_id": 184,
+   "ini_keys": [
+    "License Plate Stamp"
+   ],
+   "section": "Stamp",
+   "handler": "WiFiCmd_OnExeSetCarnumberStamp",
+   "options": [
+    {
+     "value": 0,
+     "label": "OFF"
+    },
+    {
+     "value": 1,
+     "label": "ON"
+    }
+   ]
+  },
+  {
+   "cmd": 9227,
+   "key": "CMD_AI_SPEECH_CONTROL",
+   "title": "Voice Control",
+   "setting_id": 159,
+   "ini_keys": [
+    "Voice Control"
+   ],
+   "section": "System Settings",
+   "options": [
+    {
+     "value": 0,
+     "label": "OFF"
+    },
+    {
+     "value": 1,
+     "label": "ON"
+    }
+   ]
+  },
+  {
+   "cmd": 9225,
+   "key": "CMD_PARKING_MODE_GPS",
+   "title": "Parking GPS",
+   "setting_id": 199,
+   "ini_keys": [
+    "Parking GPS"
+   ],
+   "section": "Parking Recording",
+   "handler": "WiFiCmd_OnExeSetParkGps",
+   "options": [
+    {
+     "value": 0,
+     "label": "OFF"
+    },
+    {
+     "value": 1,
+     "label": "ON"
+    }
+   ]
+  },
+  {
+   "cmd": 9311,
+   "key": "CMD_WATERMARK_SWITCH_HDR",
+   "title": "Resolution Stamp",
+   "setting_id": 198,
+   "ini_keys": [
+    "Resolution Stamp"
+   ],
+   "section": "Stamp",
+   "handler": "WiFiCmd_OnExeSetHdrStamp",
+   "options": [
+    {
+     "value": 0,
+     "label": "OFF"
+    },
+    {
+     "value": 1,
+     "label": "ON"
+    }
+   ]
+  },
+  {
+   "cmd": 9312,
+   "key": "CMD_FORMAT_REMIND",
+   "title": "Format Reminder",
+   "setting_id": 156,
+   "ini_keys": [
+    "Format Reminder"
+   ],
+   "section": "System Settings",
+   "handler": "WiFiCmd_OnExeSetFormatRemind",
+   "options": [
+    {
+     "value": 0,
+     "label": "OFF"
+    },
+    {
+     "value": 1,
+     "label": "15 DAYS"
+    },
+    {
+     "value": 2,
+     "label": "30 DAYS"
+    },
+    {
+     "value": 3,
+     "label": "60 DAYS"
+    }
+   ]
+  },
+  {
+   "cmd": 9313,
+   "key": "CMD_BLUETOOTH_KEY_AUDIO_RECORD",
+   "title": "Mic Button",
+   "setting_id": 191,
+   "ini_keys": [
+    "Mic Button"
+   ],
+   "section": "Bluetooth Button Function",
+   "handler": "WiFiCmd_OnExeSetBtKey1",
+   "options": [
+    {
+     "value": 0,
+     "label": "Turn On / Off Microphone"
+    },
+    {
+     "value": 1,
+     "label": "Take a Photo"
+    },
+    {
+     "value": 2,
+     "label": "Turn On / Off WiFi"
+    },
+    {
+     "value": 3,
+     "label": "Power Off"
+    },
+    {
+     "value": 4,
+     "label": "Switch to Timelapse Recording"
+    },
+    {
+     "value": 5,
+     "label": "Turn On / Off HDR"
+    },
+    {
+     "value": 6,
+     "label": "Parking Mode"
+    },
+    {
+     "value": 7,
+     "label": "Turn On / Off Rear Camera"
+    },
+    {
+     "value": 8,
+     "label": "Turn On / Off Interior Camera"
+    },
+    {
+     "value": 9,
+     "label": "Wifi client Mode"
+    },
+    {
+     "value": 10,
+     "label": "Switch Live Video Source"
+    }
+   ]
+  },
+  {
+   "cmd": 9314,
+   "key": "CMD_BLUETOOTH_KEY_ACTION",
+   "title": "Action Button",
+   "setting_id": 192,
+   "ini_keys": [
+    "Action Button"
+   ],
+   "section": "Bluetooth Button Function",
+   "handler": "WiFiCmd_OnExeSetBtKey2",
+   "options": [
+    {
+     "value": 0,
+     "label": "Turn On / Off WiFi"
+    },
+    {
+     "value": 1,
+     "label": "Take a Photo"
+    },
+    {
+     "value": 2,
+     "label": "Turn On / Off Microphone"
+    },
+    {
+     "value": 3,
+     "label": "Power Off"
+    },
+    {
+     "value": 4,
+     "label": "Switch to Timelapse Recording"
+    },
+    {
+     "value": 5,
+     "label": "Turn On / Off HDR"
+    },
+    {
+     "value": 6,
+     "label": "Parking Mode"
+    },
+    {
+     "value": 7,
+     "label": "Turn On / Off Rear Camera"
+    },
+    {
+     "value": 8,
+     "label": "Turn On / Off Interior Camera"
+    },
+    {
+     "value": 9,
+     "label": "Wifi client Mode"
+    },
+    {
+     "value": 10,
+     "label": "Switch Live Video Source"
+    }
+   ]
+  },
+  {
+   "cmd": 9321,
+   "key": "CMD_TIME_12_24__HOUR",
+   "title": "Time Format",
+   "setting_id": 65,
+   "ini_keys": [
+    "Time Format"
+   ],
+   "section": "System Settings",
+   "handler": "WiFiCmd_OnExeSetHourFormat",
+   "options": [
+    {
+     "value": 0,
+     "label": "24h"
+    },
+    {
+     "value": 1,
+     "label": "12h"
+    }
+   ]
+  },
+  {
+   "cmd": 9315,
+   "key": "CMD_SET_FILE_SAVE_LOCATION",
+   "title": "Driving Recording Storage",
+   "setting_id": 195,
+   "ini_keys": [
+    "Driving Recording Storage"
+   ],
+   "section": "System Settings",
+   "handler": "WiFiCmd_OnExeSetStorageRec",
+   "options": [
+    {
+     "value": 0,
+     "label": "SD"
+    },
+    {
+     "value": 1,
+     "label": "SSD"
+    }
+   ]
+  },
+  {
+   "cmd": 9322,
+   "key": "CMD_INNER_CAMERA_SWITCH",
+   "title": "Interior Camera",
+   "setting_id": 210,
+   "ini_keys": [
+    "Interior Camera"
+   ],
+   "section": "Video Settings",
+   "handler": "WiFiCmd_OnExeSetSensor2Switch",
+   "options": [
+    {
+     "value": 0,
+     "label": "OFF"
+    },
+    {
+     "value": 1,
+     "label": "ON"
+    },
+    {
+     "value": 2,
+     "label": "ONLY DRIVING"
+    },
+    {
+     "value": 3,
+     "label": "ONLY PARKING"
+    }
+   ]
+  },
+  {
+   "cmd": 9347,
+   "key": "CMD_REAR_CAMERA_SWITCH",
+   "title": "Rear Camera",
+   "setting_id": 224,
+   "ini_keys": [
+    "Rear Camera"
+   ],
+   "section": "Video Settings",
+   "handler": "WiFiCmd_OnExeSetSensor3Switch",
+   "options": [
+    {
+     "value": 0,
+     "label": "OFF"
+    },
+    {
+     "value": 1,
+     "label": "ON"
+    },
+    {
+     "value": 2,
+     "label": "ONLY DRIVING"
+    },
+    {
+     "value": 3,
+     "label": "ONLY PARKING"
+    }
+   ]
+  },
+  {
+   "cmd": 9318,
+   "key": "CMD_HDR_FRONT",
+   "title": "Hdr Front",
+   "setting_id": 28,
+   "handler": "WiFiCmd_OnExeMovieWDR",
+   "options": [
+    {
+     "value": 0,
+     "label": "OFF"
+    },
+    {
+     "value": 1,
+     "label": "ON"
+    },
+    {
+     "value": 2,
+     "label": "AUTO"
+    }
+   ]
+  },
+  {
+   "cmd": 9319,
+   "key": "CMD_HDR_REAR",
+   "title": "HDR Rear",
+   "setting_id": 202,
+   "ini_keys": [
+    "HDR Rear"
+   ],
+   "section": "HDR",
+   "handler": "WiFiCmd_OnExeSetHdrRear",
+   "options": [
+    {
+     "value": 0,
+     "label": "OFF"
+    },
+    {
+     "value": 1,
+     "label": "ON"
+    },
+    {
+     "value": 2,
+     "label": "AUTO"
+    }
+   ]
+  },
+  {
+   "cmd": 9333,
+   "key": "CMD_HDR_INTERIOR",
+   "title": "HDR Interior",
+   "setting_id": 201,
+   "ini_keys": [
+    "HDR Interior"
+   ],
+   "section": "HDR",
+   "handler": "WiFiCmd_OnExeSetHdrInterior",
+   "options": [
+    {
+     "value": 0,
+     "label": "OFF"
+    },
+    {
+     "value": 1,
+     "label": "ON"
+    },
+    {
+     "value": 2,
+     "label": "AUTO"
+    }
+   ]
+  },
+  {
+   "cmd": 9320,
+   "key": "CMD_PARKING_MODE_HDR",
+   "title": "Parking HDR",
+   "setting_id": 203,
+   "ini_keys": [
+    "Parking HDR"
+   ],
+   "section": "Parking Recording",
+   "handler": "WiFiCmd_OnExeSetHdrParkMode",
+   "options": [
+    {
+     "value": 0,
+     "label": "OFF"
+    },
+    {
+     "value": 1,
+     "label": "ON"
+    }
+   ]
+  },
+  {
+   "cmd": 9323,
+   "key": "CMD_DST_SWITCH",
+   "title": "Daylight Saving",
+   "setting_id": 160,
+   "ini_keys": [
+    "Daylight Saving"
+   ],
+   "section": "System Settings",
+   "handler": "WiFiCmd_OnExeSetDST",
+   "options": [
+    {
+     "value": 0,
+     "label": "OFF"
+    },
+    {
+     "value": 1,
+     "label": "ON"
+    }
+   ]
+  },
+  {
+   "cmd": 9329,
+   "key": "CMD_NORMAL_LED_REAR",
+   "title": "Rear LED",
+   "setting_id": 211,
+   "ini_keys": [
+    "Rear LED"
+   ],
+   "section": "LED",
+   "handler": "WiFiCmd_OnExeSetRearLED",
+   "options": [
+    {
+     "value": 0,
+     "label": "OFF"
+    },
+    {
+     "value": 1,
+     "label": "ON"
+    }
+   ]
+  },
+  {
+   "cmd": 9330,
+   "key": "CMD_PRIVACY_MODE_SWITCH",
+   "title": "Privacy Mode",
+   "setting_id": 206,
+   "ini_keys": [
+    "Privacy Mode"
+   ],
+   "section": "Video Settings",
+   "handler": "WiFiCmd_OnExeSetPrivacyMode",
+   "options": [
+    {
+     "value": 0,
+     "label": "OFF"
+    },
+    {
+     "value": 1,
+     "label": "ON"
+    }
+   ]
+  },
+  {
+   "cmd": 9331,
+   "key": "CMD_HDR_TXT_COLOR",
+   "title": "Stamp Text Color",
+   "setting_id": 207,
+   "ini_keys": [
+    "Stamp Text Color"
+   ],
+   "section": "Stamp",
+   "handler": "WiFiCmd_OnExeSetStampColor",
+   "options": [
+    {
+     "value": 0,
+     "label": "White"
+    },
+    {
+     "value": 1,
+     "label": "Yellow"
+    },
+    {
+     "value": 2,
+     "label": "Cyan"
+    },
+    {
+     "value": 3,
+     "label": "Golden"
+    }
+   ]
+  },
+  {
+   "cmd": 9302,
+   "key": "SETTING_BD",
+   "title": "Setting 0xbd",
+   "setting_id": 189
+  },
+  {
+   "cmd": 9336,
+   "key": "CMD_SET_INTERIOR_LED",
+   "title": "Interior LED",
+   "setting_id": 212,
+   "ini_keys": [
+    "Interior LED"
+   ],
+   "section": "LED",
+   "handler": "WiFiCmd_OnExeSetInteriorLED",
+   "options": [
+    {
+     "value": 0,
+     "label": "OFF"
+    },
+    {
+     "value": 1,
+     "label": "ON"
+    }
+   ]
+  },
+  {
+   "cmd": 9337,
+   "key": "CMD_PARKING_LED_REAR",
+   "title": "Rear Parking LED",
+   "setting_id": 213,
+   "ini_keys": [
+    "Rear Parking LED"
+   ],
+   "section": "Parking Mode LED",
+   "handler": "WiFiCmd_OnExeSetParkingRearLED",
+   "options": [
+    {
+     "value": 0,
+     "label": "OFF"
+    },
+    {
+     "value": 1,
+     "label": "ON"
+    }
+   ]
+  },
+  {
+   "cmd": 9338,
+   "key": "CMD_PARKING_LED_INTERIOR",
+   "title": "Interior Parking LED",
+   "setting_id": 214,
+   "ini_keys": [
+    "Interior Parking LED"
+   ],
+   "section": "Parking Mode LED",
+   "handler": "WiFiCmd_OnExeSetParkingInteriorLED",
+   "options": [
+    {
+     "value": 0,
+     "label": "OFF"
+    },
+    {
+     "value": 1,
+     "label": "ON"
+    }
+   ]
+  },
+  {
+   "cmd": 9339,
+   "key": "CMD_CAR_CAMERA_INTERIOR_FISH_EYE",
+   "title": "Interior Cam Fisheye Mode",
+   "setting_id": 217,
+   "ini_keys": [
+    "Interior Cam Fisheye Mode"
+   ],
+   "section": "Video Settings",
+   "handler": "WiFiCmd_OnExeSetInteriorDewarpMode",
+   "options": [
+    {
+     "value": 0,
+     "label": "OFF"
+    },
+    {
+     "value": 1,
+     "label": "ON"
+    }
+   ]
+  },
+  {
+   "cmd": 9340,
+   "key": "CMD_PARKING_MODE_FILE_LOCATION",
+   "title": "Parking Recording Storage",
+   "setting_id": 215,
+   "ini_keys": [
+    "Parking Recording Storage"
+   ],
+   "section": "Parking Recording",
+   "handler": "WiFiCmd_OnExeSetParkingStorage",
+   "options": [
+    {
+     "value": 0,
+     "label": "SD"
+    },
+    {
+     "value": 1,
+     "label": "SSD"
+    },
+    {
+     "value": 2,
+     "label": "SSD TO SD"
+    }
+   ]
+  },
+  {
+   "cmd": 9341,
+   "key": "WiFiCmd_OnExeSetParkingHybirdMode",
+   "title": "Hybrid Parking mode",
+   "setting_id": 221,
+   "ini_keys": [
+    "Hybrid Parking mode"
+   ],
+   "section": "Parking Recording",
+   "handler": "WiFiCmd_OnExeSetParkingHybirdMode"
+  },
+  {
+   "cmd": 9342,
+   "key": "CMD_VIDEO_MERGE",
+   "title": "Multiplex Video",
+   "setting_id": 222,
+   "ini_keys": [
+    "Multiplex Video"
+   ],
+   "section": "Video Settings",
+   "handler": "WiFiCmd_OnExeSetPipRecord",
+   "options": [
+    {
+     "value": 0,
+     "label": "OFF"
+    },
+    {
+     "value": 1,
+     "label": "Front + Interior"
+    },
+    {
+     "value": 2,
+     "label": "Front + Rear"
+    },
+    {
+     "value": 3,
+     "label": "Front + Interior + Rear"
+    }
+   ]
+  },
+  {
+   "cmd": 9343,
+   "key": "CMD_CAR_BATTERY_PROTECT_VOLTAGE_CLOSE",
+   "title": "Cut-off Voltage",
+   "setting_id": 220,
+   "ini_keys": [
+    "Cut-off Voltage"
+   ],
+   "section": "Parking Recording",
+   "handler": "WiFiCmd_OnExeSetBatteryProtection",
+   "options": [
+    {
+     "value": 0,
+     "label": "OFF"
+    },
+    {
+     "value": 1,
+     "label": "12.4 V / 24.8 V"
+    },
+    {
+     "value": 2,
+     "label": "12.2 V / 24.4 V"
+    },
+    {
+     "value": 3,
+     "label": "12.0 V / 24.0 V"
+    }
+   ]
+  },
+  {
+   "cmd": 9356,
+   "key": "CMD_BP100_POWER_CUTOFF",
+   "title": "Cut-off BP100 Capacity",
+   "setting_id": 233,
+   "ini_keys": [
+    "Cut-off BP100 Capacity"
+   ],
+   "section": "Parking Recording",
+   "handler": "WiFiCmd_OnExeSetBp100BatteryProtection",
+   "options": [
+    {
+     "value": 0,
+     "label": "OFF"
+    },
+    {
+     "value": 1,
+     "label": "5%"
+    },
+    {
+     "value": 2,
+     "label": "8%"
+    },
+    {
+     "value": 3,
+     "label": "10%"
+    },
+    {
+     "value": 4,
+     "label": "15%"
+    }
+   ]
+  },
+  {
+   "cmd": 9348,
+   "key": "CMD_WATERMARK_CAR_VOLTAGE",
+   "title": "Vehicle Voltage Stamp",
+   "setting_id": 225,
+   "ini_keys": [
+    "Vehicle Voltage Stamp"
+   ],
+   "section": "Stamp",
+   "handler": "WiFiCmd_OnExeSetVoltageStamp",
+   "options": [
+    {
+     "value": 0,
+     "label": "OFF"
+    },
+    {
+     "value": 1,
+     "label": "ON"
+    }
+   ]
+  },
+  {
+   "cmd": 9358,
+   "key": "CMD_WATERMARK_BP100_STAMP",
+   "title": "Battery pack Capacity Stamp",
+   "setting_id": 237,
+   "ini_keys": [
+    "Battery pack Capacity Stamp"
+   ],
+   "section": "Stamp",
+   "handler": "WiFiCmd_OnExeSetChargerStamp",
+   "options": [
+    {
+     "value": 0,
+     "label": "OFF"
+    },
+    {
+     "value": 1,
+     "label": "ON"
+    }
+   ]
+  },
+  {
+   "cmd": 9349,
+   "key": "CMD_PARKING_IMPACT_NOTIFICATION",
+   "title": "Parking Impact Notification",
+   "setting_id": 227,
+   "ini_keys": [
+    "Parking Impact Notification"
+   ],
+   "section": "Parking Recording",
+   "handler": "WiFiCmd_OnExeSetParkImpactNotify",
+   "options": [
+    {
+     "value": 0,
+     "label": "OFF"
+    },
+    {
+     "value": 1,
+     "label": "ON"
+    }
+   ]
+  },
+  {
+   "cmd": 9362,
+   "key": "WiFiCmd_OnExeSetGspGeofenceStandby",
+   "title": "Low Power Impact Recording",
+   "setting_id": 236,
+   "ini_keys": [
+    "Low Power Impact Recording"
+   ],
+   "section": "Parking Recording",
+   "handler": "WiFiCmd_OnExeSetGspGeofenceStandby"
+  },
+  {
+   "cmd": 9351,
+   "key": "CMD_BAK_PARKING_FILE",
+   "title": "Backup Impact Parking Videos",
+   "setting_id": 228,
+   "ini_keys": [
+    "Backup Impact Parking Videos"
+   ],
+   "section": "Parking Recording",
+   "handler": "WiFiCmd_OnExeSetParkBackupSSD",
+   "options": [
+    {
+     "value": 0,
+     "label": "OFF"
+    },
+    {
+     "value": 1,
+     "label": "ON"
+    }
+   ]
+  },
+  {
+   "cmd": 9352,
+   "key": "CMD_EXPORT_SETTINGS",
+   "title": "Export Settings",
+   "setting_id": 230,
+   "handler": "WiFiCmd_OnExeSetExportSetting",
+   "options": [
+    {
+     "value": 0,
+     "label": "OFF"
+    },
+    {
+     "value": 1,
+     "label": "ON"
+    }
+   ]
+  },
+  {
+   "cmd": 9353,
+   "key": "WiFiCmd_OnExeSetImportSetting",
+   "title": "Import Setting",
+   "setting_id": 231,
+   "handler": "WiFiCmd_OnExeSetImportSetting"
+  },
+  {
+   "cmd": 9361,
+   "key": "CMD_DEWARP_FRONT_CAM",
+   "title": "Dewarp Front Cam",
+   "setting_id": 235,
+   "ini_keys": [
+    "Dewarp Front Cam"
+   ],
+   "section": "Video Settings",
+   "handler": "WiFiCmd_OnExeSetDewarpFrontCam",
+   "options": [
+    {
+     "value": 0,
+     "label": "OFF"
+    },
+    {
+     "value": 1,
+     "label": "ON"
+    }
+   ]
+  }
+ ],
+ "note": "These are the settings: every command whose dispatch-table entry carries a non-zero setting id. That is exactly what cmd=3014 reports back \u2014 93 of the 170 commands the camera accepts. The other 77 are actions and getters and are listed in api-map.json in the firmware project, not here. Command numbers are not unique per setting, and neither are setting ids: 8220 carries front, interior and rear exposure at once and answers \"6,6,6\", while 3028 and 8202 are two commands for one setting (0x11).",
+ "destructive_note": "3010 formats the card, 3011 resets to factory, 9317 formats the SSD. 9316 is listed under two names, CMD_BAK_SDCARD_TO_SSD and CMD_DELETE_SSD_FILE, so depending on its parameter it may delete files; it is refused rather than characterised by experiment.",
+ "caution_note": "9352 and 9353 are Export Settings and Import Settings. Both are toggles rather than triggers \u2014 a single set_setting() on ids 0xe6 and 0xe7. 9352 gates the export: viofo_config.ini is written only when you ask the camera to export, and only while 9352 is on, so sending 9352&par=0 silently stops it exporting; that happened once during this work. 0xe7 has no consumer at all in V2.2_260815, so 9353 stores a flag and imports nothing, but it is still a write to persistent state. Neither is needed to read or write settings over HTTP \u2014 use --camera --export/--apply instead."
+}

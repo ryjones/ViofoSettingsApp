@@ -162,7 +162,7 @@ struct ContentView: View {
             } label: {
                 Label("Open", systemImage: "folder")
             }
-            .help("Open a viofo_config.ini")
+            .help("Open a saved configuration file")
 
             Button {
                 FileActions.save(document)
@@ -183,9 +183,15 @@ struct ContentView: View {
     }
 }
 
+/// The camera is the way in. The app used to open with a hunt for the config
+/// file the camera exports, but that file is written only when an export is
+/// asked for on the device, the camera never reads it back, and settings can be
+/// read and written over Wi-Fi directly. Opening a saved file is still here --
+/// it drives the explanation and advisory report -- but it is no longer the
+/// premise.
 struct WelcomeView: View {
     @EnvironmentObject private var document: ConfigDocument
-    @State private var candidates: [URL] = FileActions.discoverCards()
+    @Environment(\.openWindow) private var openWindow
 
     var body: some View {
         ScrollView {
@@ -193,33 +199,38 @@ struct WelcomeView: View {
                 VStack(alignment: .leading, spacing: 8) {
                     Text("VIOFO A329S Settings")
                         .font(.largeTitle.weight(.semibold))
-                    Text("Read, explain and edit the configuration the camera exports to its memory card.")
+                    Text("Read and change the camera's settings over its Wi-Fi.")
                         .font(.title3)
                         .foregroundStyle(.secondary)
                 }
 
-                Text(Schema.aboutFile)
-                    .fixedSize(horizontal: false, vertical: true)
-                    .padding(14)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .background(.quaternary.opacity(0.4), in: RoundedRectangle(cornerRadius: 10))
-
-                if !candidates.isEmpty {
-                    fileList("Found on mounted volumes", icon: "sdcard", urls: candidates)
+                VStack(alignment: .leading, spacing: 10) {
+                    Text("Join the camera's Wi-Fi network from this Mac, then connect. "
+                         + "Every setting the camera reports can be read and written live. "
+                         + "Save them to a file to keep a record, compare later, or write "
+                         + "the same setup back to the camera.")
+                        .fixedSize(horizontal: false, vertical: true)
+                    Button {
+                        openWindow(id: "camera")
+                    } label: {
+                        Label("Connect to Camera", systemImage: "wifi")
+                            .frame(maxWidth: .infinity)
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .controlSize(.large)
+                    .keyboardShortcut("k")
                 }
+                .padding(14)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .background(.quaternary.opacity(0.4), in: RoundedRectangle(cornerRadius: 10))
 
-                let recents = FileActions.recents.filter { !candidates.contains($0) }
+                let recents = FileActions.recents
                 if !recents.isEmpty {
                     fileList("Opened recently", icon: "clock", urls: recents)
                 }
 
-                HStack(spacing: 12) {
-                    Button("Open File…") { FileActions.open(into: document) }
-                        .buttonStyle(.borderedProminent)
-                        .controlSize(.large)
-                    Button("Rescan Volumes") { candidates = FileActions.discoverCards() }
-                        .controlSize(.large)
-                }
+                Button("Open a saved file…") { FileActions.open(into: document) }
+                    .controlSize(.large)
             }
             .padding(34)
             .frame(maxWidth: 720, alignment: .leading)
